@@ -1,5 +1,7 @@
 import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
+import GlassSurface from './GlassSurface';
+import Beams from './Beams';
 
 const Projects: React.FC = () => {
   const projects = [
@@ -42,8 +44,23 @@ const Projects: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-black">
-      <div className="container mx-auto px-6">
+    <section id="projects" className="py-20 bg-black relative overflow-hidden">
+      {/* Beams Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <Beams
+          beamWidth={2}
+          beamHeight={15}
+          beamNumber={12}
+          lightColor="#0f17ff"
+          speed={2}
+          noiseIntensity={1.75}
+          scale={0.2}
+          rotation={45}
+        />
+      </div>
+      
+      {/* Content */}
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-poppins font-light text-white mb-4">
             Featured Projects
@@ -56,68 +73,82 @@ const Projects: React.FC = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div
+            <GlassSurface
               key={project.id}
-              className="bg-dark-900 rounded-lg overflow-hidden border border-gray-800 hover:border-gray-700 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl group animate-slide-up"
+              width="100%"
+              height={500}
+              borderRadius={20}
+              displace={7}
+              borderWidth={0.001}
+              distortionScale={-150}
+              redOffset={0}
+              greenOffset={10}
+              blueOffset={20}
+              brightness={60}
+              opacity={0.93}
+              mixBlendMode="screen"
+              className="group hover:scale-105 transition-transform duration-300 animate-slide-up overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                  <a
-                    href={project.githubUrl}
-                    className="bg-white/20 backdrop-blur-sm p-3 rounded-full hover:bg-white/30 transition-all duration-200"
-                  >
-                    <Github size={20} className="text-white" />
-                  </a>
-                  <a
-                    href={project.liveUrl}
-                    className="bg-white/20 backdrop-blur-sm p-3 rounded-full hover:bg-white/30 transition-all duration-200"
-                  >
-                    <ExternalLink size={20} className="text-white" />
-                  </a>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-xl font-poppins font-medium text-white mb-3">
-                  {project.title}
-                </h3>
-                <p className="text-gray-400 font-poppins font-light mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 text-xs font-poppins font-light bg-gray-800 text-gray-300 rounded-full"
+              <div className="w-full h-full flex flex-col">
+                <div className="relative overflow-hidden flex-shrink-0">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
+                    <a
+                      href={project.githubUrl}
+                      className="bg-white/20 backdrop-blur-sm p-3 rounded-full hover:bg-white/30 transition-all duration-200"
                     >
-                      {tech}
-                    </span>
-                  ))}
+                      <Github size={20} className="text-white" />
+                    </a>
+                    <a
+                      href={project.liveUrl}
+                      className="bg-white/20 backdrop-blur-sm p-3 rounded-full hover:bg-white/30 transition-all duration-200"
+                    >
+                      <ExternalLink size={20} className="text-white" />
+                    </a>
+                  </div>
                 </div>
-                <div className="flex space-x-4">
-                  <a
-                    href={project.githubUrl}
-                    className="text-gray-400 hover:text-white transition-colors duration-200 font-poppins font-light text-sm flex items-center space-x-1"
-                  >
-                    <Github size={16} />
-                    <span>Code</span>
-                  </a>
-                  <a
-                    href={project.liveUrl}
-                    className="text-gray-400 hover:text-white transition-colors duration-200 font-poppins font-light text-sm flex items-center space-x-1"
-                  >
-                    <ExternalLink size={16} />
-                    <span>Live Demo</span>
-                  </a>
+
+                <div className="p-6 flex-1 flex flex-col">
+                  <h3 className="text-xl font-poppins font-medium text-white mb-3">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-300 font-poppins font-light mb-4 leading-relaxed flex-1">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 text-xs font-poppins font-light bg-white/10 backdrop-blur-sm text-gray-300 rounded-full border border-white/20"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex space-x-4 mt-auto">
+                    <a
+                      href={project.githubUrl}
+                      className="text-gray-300 hover:text-white transition-colors duration-200 font-poppins font-light text-sm flex items-center space-x-1"
+                    >
+                      <Github size={16} />
+                      <span>Code</span>
+                    </a>
+                    <a
+                      href={project.liveUrl}
+                      className="text-gray-300 hover:text-white transition-colors duration-200 font-poppins font-light text-sm flex items-center space-x-1"
+                    >
+                      <ExternalLink size={16} />
+                      <span>Live Demo</span>
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
+            </GlassSurface>
           ))}
         </div>
       </div>
