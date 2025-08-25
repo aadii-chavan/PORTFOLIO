@@ -22,22 +22,9 @@ const About: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Profile Section */}
           <div className="text-center lg:text-left animate-slide-up">
-            <div className="w-48 h-48 mx-auto lg:mx-0 mb-8 relative">
-              <div className="w-full h-full bg-gray-800 rounded-full flex items-center justify-center">
-                <div className="w-32 h-32 bg-gray-700 rounded-full flex items-center justify-center">
-                  <span className="text-4xl text-gray-400 font-poppins font-light">AM</span>
-                </div>
-              </div>
-            </div>
             <p className="text-gray-300 font-poppins font-light text-lg leading-relaxed mb-8">
-              I'm a passionate web developer with over 3 years of experience creating 
-              digital solutions that matter. I specialize in building responsive, 
-              user-friendly applications using modern technologies and best practices.
             </p>
             <p className="text-gray-400 font-poppins font-light leading-relaxed">
-              When I'm not coding, you'll find me exploring new technologies, 
-              contributing to open source projects, or enjoying a good cup of coffee 
-              while sketching out my next big idea.
             </p>
           </div>
 
