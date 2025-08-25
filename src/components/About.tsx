@@ -1,0 +1,70 @@
+import React from 'react';
+import { Code, Palette, Smartphone, Globe } from 'lucide-react';
+
+const About: React.FC = () => {
+  const skills = [
+    { name: 'Frontend Development', icon: Code, description: 'React, TypeScript, JavaScript' },
+    { name: 'UI/UX Design', icon: Palette, description: 'Figma, Adobe XD, Tailwind CSS' },
+    { name: 'Responsive Design', icon: Smartphone, description: 'Mobile-first, Cross-browser' },
+    { name: 'Web Technologies', icon: Globe, description: 'HTML5, CSS3, Node.js' },
+  ];
+
+  return (
+    <section id="about" className="py-20 bg-dark-950">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-poppins font-light text-white mb-4">
+            About Me
+          </h2>
+          <div className="w-24 h-1 bg-white mx-auto"></div>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Profile Section */}
+          <div className="text-center lg:text-left animate-slide-up">
+            <div className="w-48 h-48 mx-auto lg:mx-0 mb-8 relative">
+              <div className="w-full h-full bg-gray-800 rounded-full flex items-center justify-center">
+                <div className="w-32 h-32 bg-gray-700 rounded-full flex items-center justify-center">
+                  <span className="text-4xl text-gray-400 font-poppins font-light">AM</span>
+                </div>
+              </div>
+            </div>
+            <p className="text-gray-300 font-poppins font-light text-lg leading-relaxed mb-8">
+              I'm a passionate web developer with over 3 years of experience creating 
+              digital solutions that matter. I specialize in building responsive, 
+              user-friendly applications using modern technologies and best practices.
+            </p>
+            <p className="text-gray-400 font-poppins font-light leading-relaxed">
+              When I'm not coding, you'll find me exploring new technologies, 
+              contributing to open source projects, or enjoying a good cup of coffee 
+              while sketching out my next big idea.
+            </p>
+          </div>
+
+          {/* Skills Grid */}
+          <div className="grid sm:grid-cols-2 gap-6 animate-slide-up">
+            {skills.map((skill, index) => {
+              const Icon = skill.icon;
+              return (
+                <div
+                  key={index}
+                  className="bg-dark-900 p-6 rounded-lg border border-gray-800 hover:border-gray-700 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg group"
+                >
+                  <Icon className="text-white mb-4 group-hover:scale-110 transition-transform duration-200" size={32} />
+                  <h3 className="text-white font-poppins font-medium text-lg mb-2">
+                    {skill.name}
+                  </h3>
+                  <p className="text-gray-400 font-poppins font-light text-sm">
+                    {skill.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
