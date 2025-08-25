@@ -11,10 +11,10 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-dark-950 relative overflow-hidden">
+    <section id="about" className="py-20 bg-black relative overflow-hidden">
       <div style={{ width: '100%', height: '600px', position: 'absolute', top: 0, left: 0, zIndex: 0 }}>
         <Threads
-          amplitude={4.8}
+          amplitude={3}
           distance={0}
           enableMouseInteraction={false}
         />
