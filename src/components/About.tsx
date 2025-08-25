@@ -1,5 +1,6 @@
 import React from 'react';
 import { Code, Palette, Smartphone, Globe } from 'lucide-react';
+import Threads from './Threads';
 
 const About: React.FC = () => {
   const skills = [
@@ -10,8 +11,15 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-dark-950">
-      <div className="container mx-auto px-6">
+    <section id="about" className="py-20 bg-dark-950 relative overflow-hidden">
+      <div style={{ width: '100%', height: '600px', position: 'absolute', top: 0, left: 0, zIndex: 0 }}>
+        <Threads
+          amplitude={4.8}
+          distance={0}
+          enableMouseInteraction={false}
+        />
+      </div>
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-poppins font-light text-white mb-4">
             About Me
