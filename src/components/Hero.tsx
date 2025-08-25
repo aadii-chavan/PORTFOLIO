@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="animate-slide-up">
           <h1 className="text-5xl md:text-7xl font-poppins font-light text-white mb-6 leading-tight">
-            Hi, I'm <span className="font-medium text-white">Alex Morgan</span>
+            Hi, I'm <span className="font-medium text-white">Aditya Chavan</span>
           </h1>
           <h2 className="text-2xl md:text-3xl font-poppins font-light text-gray-300 mb-8">
             Web Developer
