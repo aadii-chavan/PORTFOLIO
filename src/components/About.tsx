@@ -1,6 +1,7 @@
 import React from 'react';
 import { Code, Palette, Smartphone, Globe } from 'lucide-react';
 import Threads from './Threads';
+import GlassSurface from './GlassSurface';
 
 const About: React.FC = () => {
   const skills = [
@@ -41,18 +42,32 @@ const About: React.FC = () => {
             {skills.map((skill, index) => {
               const Icon = skill.icon;
               return (
-                <div
+                <GlassSurface
                   key={index}
-                  className="bg-dark-900 p-6 rounded-lg border border-gray-800 hover:border-gray-700 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg group"
+                  width="100%"
+                  height={160}
+                  borderRadius={20}
+                  displace={7}
+                  borderWidth={0.001}
+                  distortionScale={-150}
+                  redOffset={0}
+                  greenOffset={10}
+                  blueOffset={20}
+                  brightness={60}
+                  opacity={0.93}
+                  mixBlendMode="screen"
+                  className="group hover:scale-105 transition-transform duration-300"
                 >
-                  <Icon className="text-white mb-4 group-hover:scale-110 transition-transform duration-200" size={32} />
-                  <h3 className="text-white font-poppins font-medium text-lg mb-2">
-                    {skill.name}
-                  </h3>
-                  <p className="text-gray-400 font-poppins font-light text-sm">
-                    {skill.description}
-                  </p>
-                </div>
+                  <div className="flex flex-col items-center justify-center h-full p-4 text-center">
+                    <Icon className="text-white mb-3 group-hover:scale-110 transition-transform duration-200" size={32} />
+                    <h3 className="text-white font-poppins font-medium text-lg mb-2">
+                      {skill.name}
+                    </h3>
+                    <p className="text-gray-300 font-poppins font-light text-sm">
+                      {skill.description}
+                    </p>
+                  </div>
+                </GlassSurface>
               );
             })}
           </div>
