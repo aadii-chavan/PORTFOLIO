@@ -32,8 +32,13 @@ const About: React.FC = () => {
           {/* Profile Section */}
           <div className="text-center lg:text-left animate-slide-up">
             <p className="text-gray-300 font-poppins font-light text-lg leading-relaxed mb-8">
+              I am a Computer Science (Data Science) student passionate about exploring and leveraging the latest AI tools, from conversational models like ChatGPT, Google Gemini, and Grok to creative platforms for image and video generation, as well as AI-driven coding assistants such as Bolt.new, Lovable.dev, Cursor, Trae, and Windsurf.
             </p>
             <p className="text-gray-400 font-poppins font-light leading-relaxed">
+              My technical experience spans full-stack development across web and mobile, with strong skills in React.js, TypeScript, and React Native (Expo Go with EAS custom builds). I have worked extensively with Backend-as-a-Service platforms including Firebase, Supabase, and Google Cloud Console, and I also explore machine learning—training models or integrating pre-trained models from Hugging Face into applications.
+            </p>
+            <p className="text-gray-400 font-poppins font-light leading-relaxed mt-4">
+              I have applied this expertise in college projects, personal learning projects, and freelance client development, consistently aiming to build impactful, scalable, and user-friendly solutions.
             </p>
           </div>
 
