@@ -24,6 +24,7 @@ const Hero: React.FC = () => {
             Web Developer
           </h2>
           <p className="text-lg md:text-xl font-poppins font-light text-gray-400 mb-12 max-w-2xl mx-auto">
+            A 2nd-year Computer Science (Data Science) student at Vishwakarma Institute of Technology, Pune. With 1 year of hands-on web development experience, I'm passionate about building impactful digital solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <button
